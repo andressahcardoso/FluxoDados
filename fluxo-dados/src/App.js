@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import StyledGlobal, { AppComponent, Text} from './styledGlobal';
+import React, { useState } from 'react';
+import Filho from "./components/Filho/Filho";
 
 function App() {
+  const [texto, SetStatus] = useState('Estado Original - App (Pai)');
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <AppComponent>
+      <StyledGlobal/>
+      <p>App (Pai)</p>
+      <Text>{texto}</Text>
+      <Filho SetStatus={SetStatus}/>
+   </AppComponent>
   );
 }
 
 export default App;
+
